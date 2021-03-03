@@ -82,3 +82,21 @@ footer {
   position: absolute;
   bottom: 0;
 }
+
+size-card-movie {
+  max-width: 345px;
+  margin: 5px;
+}
+
+size-image-movie {
+  height: 140;
+  padding-top: 56.25%;
+}
+
+.MuiCircularProgress-colorPrimary {
+  color: green !important;
+}
+
+.MuiCircularProgress-colorSecondary {
+  color: goldenrod !important;
+}
