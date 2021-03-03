@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import { imageUrl } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +48,7 @@ const PeliCollection = ({
             <div className={classes.cover}>
               <img
                 className={classes.cover}
-                src={`https://image.tmdb.org/t/p/w500${movie_poster_path} `}
+                src={`${imageUrl}${movie_poster_path} `}
                 alt="title"
               />
             </div>
