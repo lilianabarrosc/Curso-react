@@ -14,3 +14,15 @@ export const popularMovieGet = () => `${ base_url }${ popular_movies_get }${ api
 //detalle pelicula
 const movies_get = 'movie/';
 export const movieGet = movie_id => `${ base_url }${ movies_get }${ movie_id }${ api_key }${optional_params}`;
+
+//******************************************/
+
+//Series de TV populares
+const popular_tv_get = 'tv/popular';
+//export const popularMovieGet = () => `${ cors_anywhere }${ base_url }${ popular_movies_get }${ api_key }${optional_params}`;
+export const popularTvGet = () => `${ base_url }${ popular_tv_get }${ api_key }${optional_params}`;
+
+
+//detalle pelicula
+const tv_get = 'tv/';
+export const tvGet = tv_id => `${ base_url }${ tv_get }${ tv_id }${ api_key }${optional_params}`;

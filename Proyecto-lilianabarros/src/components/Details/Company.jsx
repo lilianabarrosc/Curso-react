@@ -2,6 +2,7 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import { imageUrl } from "../../constants";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,15 +38,21 @@ const Company = ({ logo, name, country }) => {
         </strong>
         <br />
         <div class="container">
-          <img
-            className={classes.cover}
-            src={`${imageUrl}${logo} `}
-            alt="logo"
-          />
+          { logo ?              
+            <img className={classes.cover} src={`${imageUrl}${logo} `} alt="logo" />
+            :
+            ""
+          }
         </div>
       </Paper>
     </div>
   );
 };
+
+Company.propTypes = {
+  logo: PropTypes.string,
+  name: PropTypes.string,
+  country: PropTypes.string
+}
 
 export default Company;

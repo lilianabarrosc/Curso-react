@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import { imageUrl } from '../../constants';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,12 +31,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PeliCollection = ({
-  movie_id,
-  movie_title,
-  movie_vote_average,
-  movie_release_date,
-  movie_poster_path,
+const DataCollection = ({
+  data_id,
+  data_title,
+  data_vote_average,
+  data_release_date,
+  data_poster_path,
+  data_link_detail,
 }) => {
   const classes = useStyles();
   const youHandleClickFunc = () => {};
@@ -48,22 +50,22 @@ const PeliCollection = ({
             <div className={classes.cover}>
               <img
                 className={classes.cover}
-                src={`${imageUrl}${movie_poster_path} `}
+                src={`${imageUrl}${data_poster_path} `}
                 alt="title"
               />
             </div>
           </Typography>
           <Typography gutterBottom variant="h6" component="span">
-            {movie_title}
+            {data_title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {movie_release_date}
+            {data_release_date}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Box position="relative" display="inline-flex">
-          <CircularProgress className={movie_vote_average > 7 ? 'MuiCircularProgress-colorPrimary' : 'MuiCircularProgress-colorSecondary'} variant="static" value={movie_vote_average * 10} />
+          <CircularProgress className={data_vote_average > 7 ? 'MuiCircularProgress-colorPrimary' : 'MuiCircularProgress-colorSecondary'} variant="static" value={data_vote_average * 10} />
           <Box
             top={0}
             left={0}
@@ -78,7 +80,7 @@ const PeliCollection = ({
               variant="caption"
               component="div"
               color="textSecondary"
-            >{`${movie_vote_average * 10}%`}</Typography>
+            >{`${data_vote_average * 10}%`}</Typography>
           </Box>
         </Box>
 
@@ -86,7 +88,7 @@ const PeliCollection = ({
           size="small"
           color="primary"
           component={Link}
-          to={`/movie/${movie_id} `}
+          to={`${data_link_detail}${data_id}`}
         >
           Ver Detalle
         </Button>
@@ -95,6 +97,15 @@ const PeliCollection = ({
   );
 };
 
-PeliCollection.displayName = "PeliCollection";
+DataCollection.displayName = "DataCollection";
 
-export default PeliCollection;
+DataCollection.propTypes = {
+  data_id: PropTypes.number,
+  data_title: PropTypes.string,
+  data_vote_average: PropTypes.number,
+  data_release_date: PropTypes.string,
+  data_poster_path: PropTypes.string,
+  data_link_detail: PropTypes.string,
+}
+
+export default DataCollection;

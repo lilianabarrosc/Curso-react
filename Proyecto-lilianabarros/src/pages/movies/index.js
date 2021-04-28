@@ -1,8 +1,8 @@
 import React, { Fragment, useContext } from 'react';
 import { PopularMovieContext } from '../../contexts/PopularMovieContext';
-import ProgressBar from "./../Common/ProgressBar";
-import Message from "./../Common/Message";
-import PopularMovies from "./Movies";
+import ProgressBar from "../../components/Common/ProgressBar";
+import Message from "../../components/Common/Message";
+import PopularData from "../../components/Collection/Data";
 
 
 const Movies = () => {
@@ -11,7 +11,7 @@ const Movies = () => {
         <Fragment>
             {doneFetch ? (
                 movies.length ? (
-                    <PopularMovies movies={movies} />
+                    <PopularData data={movies} link_detail={"/movie/detail/"}/>
                 ) : (
                         <Message text="No hay resultados :(" />
                     )

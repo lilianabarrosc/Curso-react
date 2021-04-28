@@ -4,7 +4,7 @@ import { movieGet } from '../constants';
 export const MovieContext = createContext();
 
 const MovieContextProvider = ({ children }) => {
-    const movie_id = window.location.pathname.split("/")[2];
+    const movie_id = window.location.pathname.split("/")[3];
     const [doneFetchMovie, setDoneFetchMovie] = useState(false);
     const [movieDetail, setMovieDetail] = useState();
 
