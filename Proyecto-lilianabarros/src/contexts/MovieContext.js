@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { movieGet } from '../constants';
+import useGetData from '../custom-hooks/useGetData';
 
 export const MovieContext = createContext();
 
@@ -8,17 +9,9 @@ const MovieContextProvider = ({ children }) => {
     const [doneFetchMovie, setDoneFetchMovie] = useState(false);
     const [movieDetail, setMovieDetail] = useState();
 
-    useEffect(() => getMovie(movie_id), [movie_id]);
+    useEffect(() => getData(movie_id), [movie_id]);
 
-    const getMovie = (movie_id) => {
-        fetch(movieGet(movie_id))
-            .then((res) => res.json())
-            .then((data) => {
-                setDoneFetchMovie(true);
-                setMovieDetail(data);
-            })
-            .catch((err) => console.log(err));
-    };
+    const { getData } = useGetData(movie_id, setDoneFetchMovie, setMovieDetail, movieGet);
 
     return (
         <MovieContext.Provider
